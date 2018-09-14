@@ -25,10 +25,10 @@ app.use((req,res,next)=>{
     next();
 })
 
-// app.use((req,res,next)=>{
-//     res.render('maintanence.hbs');
-//     next();
-// })
+app.use((req,res,next)=>{
+    res.render('maintanence.hbs');
+    next();
+})
 
 //handlebar HELPERS
 hbs.registerHelper('year',()=>{
