@@ -9,7 +9,7 @@ var app = express();
 //middle wares for express and handle bars
 hbs.registerPartials(__dirname+'/views/partial')//reusability of the html code
 app.set('view engine','hbs')
-app.use(express.static(__dirname+'/public'))
+
 
 app.use((req,res,next)=>{
     var log = new Date().toString();
@@ -26,7 +26,7 @@ app.use((req,res,next)=>{
 })
 
 app.use((req,res,next)=>{
-    res.render('maintanence.hbs')
+    res.render('maintanence.hbs');
     next();
 })
 
@@ -41,6 +41,8 @@ hbs.registerHelper('upperCase',(text)=>{
 
 
 //application Root paths
+app.use(express.static(__dirname+'/public'))
+
 app.get('/',(req,res)=>{
     res.render('home.hbs',{
         pageTitle:'Home Page :)',
