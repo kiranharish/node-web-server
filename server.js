@@ -2,7 +2,7 @@
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs')
-
+const port = process.env.PORT || 3000
 
 var app = express();
 
@@ -27,6 +27,7 @@ app.use((req,res,next)=>{
 
 app.use((req,res,next)=>{
     res.render('maintanence.hbs')
+    next();
 })
 
 //handlebar HELPERS
@@ -64,6 +65,6 @@ app.get('/bad',(req,res)=>{
 })
 
 
-app.listen(3000,function(){
-    console.log('Started server on port 3000')
+app.listen(port,function(){
+    console.log(`Started server on port ${port}`)
 })
